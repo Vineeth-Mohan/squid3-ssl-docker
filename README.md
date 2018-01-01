@@ -13,12 +13,20 @@ other Docker containers.
 * Configured to cache Docker images (default config for Squid3 doesn't handle
   Docker images very well.)
 
+## Build
+
+```
+docker build -t squid3 .
+```
+
+## 
+
 ## Usage
 
 Start Squid3 setting its hostname and container name:
 
 ```
-$ docker run -d -h proxy.docker.dev --name squid3 fgrehm/squid3-ssl:v20140809
+docker run  -d -h proxy.docker.dev -p 3128:3128   --name squid3 'squid3:latest'
 ```
 
 Start another container linking it to the proxy container and setting the
